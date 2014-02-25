@@ -1,5 +1,7 @@
 StealGaze for FFXIV PvP
 =========================
+※日本語マニュアル準備中
+
 ## What's StealGaze
 StealGaze is the utility that helps you play FFXIV PvP.
 
