@@ -102,7 +102,7 @@ namespace StealGaze
                     actorsLog[key] = actors[key];
                 }
                 actors = new Dictionary<string, PvPActor>();
-                targetImage.Image = Properties.Resources.blank;
+                targetImage.Image = Properties.Resources.eye;
 
                 dataGridView.Rows.Clear();
             }
@@ -491,7 +491,7 @@ namespace StealGaze
                 actorsLog[key] = actors[key];
             }
             actors = new Dictionary<string, PvPActor>();
-            targetImage.Image = Properties.Resources.blank;
+            targetImage.Image = Properties.Resources.eye;
 
             dataGridView.Rows.Clear();
         }

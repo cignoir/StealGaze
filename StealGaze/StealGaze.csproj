@@ -59,7 +59,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>purple_eye.ico</ApplicationIcon>
@@ -142,7 +142,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="StealGaze_一時キー.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -273,6 +272,8 @@
     <Content Include="eye.ico" />
     <Content Include="purple_eye.ico" />
     <None Include="Resources\purple_eye.ico" />
+    <None Include="Resources\purple_eye_vectorized.png" />
+    <None Include="Resources\eye.png" />
     <Content Include="tinyeye2.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
