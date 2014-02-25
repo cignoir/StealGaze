@@ -47,6 +47,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>29879EA8E311F44B4DB7F4F58BC2E00B0831B6A4</ManifestCertificateThumbprint>
@@ -59,6 +60,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>purple_eye.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -74,6 +78,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAndDSizeChanger.cs" />
+    <Compile Include="FFXIVLibrary\FFXIVLog.cs" />
+    <Compile Include="FFXIVLibrary\FFXIVLogFileReader.cs" />
+    <Compile Include="FFXIVLibrary\FFXIVLogMemoryInfo.cs" />
+    <Compile Include="FFXIVLibrary\FFXIVLogWatcher.cs" />
+    <Compile Include="FFXIVLibrary\Memory.cs" />
+    <Compile Include="FFXIVLibrary\MemoryProvidor.cs" />
+    <Compile Include="FFXIVLibrary\ProcessMemory.cs" />
+    <Compile Include="FFXIVLogAnalyze\FF14LogParser.cs" />
+    <Compile Include="FFXIVLogAnalyze\FFXIVLogDataSet.cs">
+      <DependentUpon>FFXIVLogDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FFXIVLogAnalyze\FFXIVLogDataSet.Designer.cs">
+      <DependentUpon>FFXIVLogDataSet.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="FFXIVLogAnalyze\FFXIVUserFolder.cs" />
+    <Compile Include="FFXIVLogAnalyze\PivotA.cs" />
+    <Compile Include="FFXIVLogAnalyze\ReportData.cs" />
+    <Compile Include="FFXIVLogAnalyze\TreeElementA.cs" />
     <Compile Include="PvPActor.cs" />
     <Compile Include="StealGaze.cs">
       <SubType>Form</SubType>
@@ -97,6 +122,17 @@
     <EmbeddedResource Include="StealGaze.resx">
       <DependentUpon>StealGaze.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="FFXIVLogAnalyze\FFXIVLogDataSet.xsc">
+      <DependentUpon>FFXIVLogDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FFXIVLogAnalyze\FFXIVLogDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FFXIVLogDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FFXIVLogAnalyze\FFXIVLogDataSet.xss">
+      <DependentUpon>FFXIVLogDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -110,16 +146,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FFXIVLibrary\FFXIVLibrary.csproj">
-      <Project>{66f73764-f355-41d6-bb58-e26f282a74f1}</Project>
-      <Name>FFXIVLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FFXIVLogAnalyze\FFXIVLogAnalyze.csproj">
-      <Project>{30d37eed-d57b-4494-924e-f5d659564074}</Project>
-      <Name>FFXIVLogAnalyze</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\blank.bmp" />
@@ -242,6 +268,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="eye.ico" />
+    <Content Include="purple_eye.ico" />
+    <None Include="Resources\purple_eye.ico" />
+    <Content Include="tinyeye2.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -29,13 +30,13 @@ namespace StealGaze
             }
         }
 
-        public string LogFolder
-        {
-            get
-            {
-                return System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "log");
-            }
-        }
+        //public string LogFolder
+        //{
+        //    get
+        //    {
+        //        return System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "log");
+        //    }
+        //}
 
         int logCount;
 
@@ -310,7 +311,7 @@ namespace StealGaze
 
             if(memoryLogCount > 1000)
             {
-                SetStatus("ログファイルからデータを読み込んでいます。");
+                SetStatus("ログ読込中...");
 
                 FFXIVUserFolder userfolder = new FFXIVUserFolder();
                 CharacterFolder playnow = null;
@@ -331,12 +332,12 @@ namespace StealGaze
                         logParser.Add(log);
                     }
                 }
-                SetStatus("メモリからログを読み込んでいます。");
+                SetStatus("ログ読込中...");
                 foreach(byte[] data in logmemoryInfo.GetNewLogsData())
                 {
                     logParser.Add(FFXIVLog.ParseSingleLog(data));
                 }
-                SetStatus("読み込み完了");
+                SetStatus("読込完了");
             }
             SetProgress(100, true);
             this.logParser = logParser;
@@ -350,16 +351,16 @@ namespace StealGaze
                 logmemoryInfo = FFXIVLogMemoryInfo.Create();
                 if(logmemoryInfo == null)
                 {
-                    SetStatus(String.Format("ffxiv.exeの起動を確認します。"));
+                    SetStatus(String.Format("ログイン確認中..."));
                     SetProgress(0, false);
                     for(int i = 10; i >= 0 && !logFinder.CancellationPending; i--)
                     {
                         System.Threading.Thread.Sleep(10000);
-                        SetStatus(String.Format("ffxiv.exe 起動再確認まで...{0}", i));
+                        //SetStatus(String.Format("プロセス確認中...", i));
                     }
                     continue;
                 }
-                SetStatus("キャラクターのログインを確認しています･･･");
+                //SetStatus("ログイン確認中...");
                 SetProgress(0, false);
                 bool success = false;
                 System.Threading.ThreadStart action = () =>
@@ -372,7 +373,7 @@ namespace StealGaze
                 {
                     if(logFinder.CancellationPending)
                     {//キャンセルされた
-                        SetStatus("停止中");
+                        SetStatus("停止中...");
                         logmemoryInfo.CancelSearching();
                         th.Join();
                         logmemoryInfo = null;
@@ -391,7 +392,7 @@ namespace StealGaze
                     for(int i = 10; i >= 0 && !logFinder.CancellationPending; i--)
                     {
                         System.Threading.Thread.Sleep(10000);
-                        SetStatus(String.Format("キャラクターのログイン再確認まで...{0}", i));
+                        SetStatus("ログイン確認中...");
                     }
                 }
                 else
@@ -405,7 +406,7 @@ namespace StealGaze
         {
             if(logmemoryInfo == null)
             {
-                SetStatus("キャンセルしました。");
+                SetStatus("キャンセルしました");
             }
             else
             {
@@ -420,14 +421,14 @@ namespace StealGaze
             dAndDSizeChanger = new DAndDSizeChanger(this, this, DAndDArea.All, 4);
 
             // ログフォルダ
-            if(!System.IO.Directory.Exists(LogFolder))
-            {
-                System.IO.Directory.CreateDirectory(LogFolder);
-            }
+            //if(!System.IO.Directory.Exists(LogFolder))
+            //{
+            //    System.IO.Directory.CreateDirectory(LogFolder);
+            //}
 
             //LoadSettings();
 
-            SetStatus("ログの探索を開始します。１０秒～２０秒掛かります。");
+            SetStatus("ログ読込中...");
 
             dataGridView.Rows.Clear();
 
