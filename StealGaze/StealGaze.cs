@@ -7,15 +7,11 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using FFXIV_Tools;
-using ffxivlib;
 
 namespace StealGaze
 {
     public partial class StealGaze: Form
     {
-        FFXIVLIB ffxivlib;
-        bool useFFXIVLIB = false;
-
         FFXIVLogMemoryInfo logmemoryInfo;
         FF14LogParser logParser;
 
@@ -47,11 +43,6 @@ namespace StealGaze
         {
             InitializeComponent();
             logParser = new FF14LogParser();
-
-            if(useFFXIVLIB)
-            {
-                ffxivlib = new FFXIVLIB();
-            }
         }
 
         private void logReader_Tick(object sender, EventArgs e)
@@ -113,19 +104,6 @@ namespace StealGaze
                 targetImage.Image = Properties.Resources.blank;
 
                 dataGridView.Rows.Clear();
-
-                if(useFFXIVLIB)
-                {
-                    var nodeList = ffxivlib.GetEntityByType(TYPE.Player);
-                    foreach(Entity e in nodeList)
-                    {
-                        string playerName = Encoding.UTF8.GetString(Encoding.Unicode.GetBytes(e.Structure.Name));
-                        JOB job = e.Structure.Job;
-                        var pvpActor = FindOrCreatePvPActor(playerName);
-                        pvpActor.jobList.Add(StealGazeUtils.GetJobShortNameJP(job));
-                        actors[playerName] = pvpActor;
-                    }
-                }
             }
 
             if(row.IsPvPEnd)
@@ -287,19 +265,6 @@ namespace StealGaze
                 dataGridView["name", currentRowIndex].Value = name;
                 currentRowIndex++;
             }
-
-            if(useFFXIVLIB)
-            {
-                var mouseOverTarget = ffxivlib.GetMouseoverTarget();
-                Entity currentTarget = ffxivlib.GetCurrentTarget();
-                if(currentTarget != null)
-                {
-                    var job = currentTarget.Structure.Job;
-                    string targetName = Encoding.UTF8.GetString(Encoding.Unicode.GetBytes(currentTarget.Structure.Name));
-                    string jobName = Encoding.UTF8.GetString(Encoding.Unicode.GetBytes(job.ToString()));
-                    SetStatus("current target: " + targetName + " " + jobName);
-                }
-            }
         }
 
         private void SetStatus(string text)
@@ -454,11 +419,11 @@ namespace StealGaze
             //SetVersionInfo();
             dAndDSizeChanger = new DAndDSizeChanger(this, this, DAndDArea.All, 4);
 
-            //ログフォルダ
-            //if(!System.IO.Directory.Exists(LogFolder))
-            //{
-            //    System.IO.Directory.CreateDirectory(LogFolder);
-            //}
+            // ログフォルダ
+            if(!System.IO.Directory.Exists(LogFolder))
+            {
+                System.IO.Directory.CreateDirectory(LogFolder);
+            }
 
             //LoadSettings();
 
