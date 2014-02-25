@@ -13,6 +13,8 @@ This app is forked from [Chocorep](https://github.com/chocopon/FinalFantasyXIV_A
 * Support FFXIV patch 2.16
 * Support japanese client only now
 * Just only to parse chat logs(not hacking any packets).
+* To display enemy's names, roles and jobs as image.
+* To display target character's job icon.
 
 ## How to get
 * v0.01 [Download](https://dl.dropboxusercontent.com/u/40069781/StealGaze/StealGaze0.01.zip) (zip/164KB)
@@ -31,7 +33,7 @@ This app is forked from [Chocorep](https://github.com/chocopon/FinalFantasyXIV_A
 * To read chatlogs correctly, you must configure the chat option on FFXIV settings not to filter any logs at least one of chat-tabs.
 
 ## Advanced option
-* You can display the current targeting character's job-icon.
+* You can display the current target character's job-icon.
 
 Coming soon.
 
