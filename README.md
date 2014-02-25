@@ -10,6 +10,7 @@ This app is forked from [Chocorep](https://github.com/chocopon/FinalFantasyXIV_A
 ## Features
 * Support FFXIV patch 2.16
 * Support japanese client only now
+* Just only to parse chat logs(not hacking any packets).
 
 ## How to get
 * v0.01 [Download](https://dl.dropboxusercontent.com/u/40069781/StealGaze/StealGaze0.01.zip) (zip/164KB)
@@ -23,6 +24,9 @@ This app is forked from [Chocorep](https://github.com/chocopon/FinalFantasyXIV_A
 1. You need to log in ffxiv.
 2. Double click 'StealGaze.exe' and start.
 3. Then StealGaze will start to read and parse game-logs automatically.
+
+## Notice
+* To read chat-logs correctly, you must configure the chat option on ffxiv settings not to filter any logs at least one of chat tabs.
 
 ## Advanced option
 * You can display the current targeting character's job-icon.
