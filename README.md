@@ -21,12 +21,12 @@ This app is forked from [Chocorep](https://github.com/chocopon/FinalFantasyXIV_A
 3. Extract it in anywhere you like.
 
 ## How to use
-1. You need to log in ffxiv.
-2. Double click 'StealGaze.exe' and start.
+1. You need to log in FFXIV.
+2. Double click 'StealGaze.exe' and start it.
 3. Then StealGaze will start to read and parse game-logs automatically.
 
 ## Notice
-* To read chat-logs correctly, you must configure the chat option on ffxiv settings not to filter any logs at least one of chat tabs.
+* To read chatlogs correctly, you must configure the chat option on FFXIV settings not to filter any logs at least one of chat-tabs.
 
 ## Advanced option
 * You can display the current targeting character's job-icon.
@@ -38,4 +38,4 @@ Coming soon.
 * Released under the MIT license
 
 ## Feedback
-* e-mail cignoir@gmail.com
+* e-mail: cignoir@gmail.com
