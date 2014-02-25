@@ -1,4 +1,4 @@
-StealGaze v0.01 for FFXIV PvP
+StealGaze for FFXIV PvP
 =========================
 ## What's StealGaze
 StealGaze is the utility that helps you play FFXIV PvP.
@@ -12,7 +12,7 @@ This app is forked from [Chocorep](https://github.com/chocopon/FinalFantasyXIV_A
 * Supported japanese client only now
 
 ## How to get
-* [Download](https://dl.dropboxusercontent.com/u/40069781/StealGaze/StealGaze0.01.zip) (zip/164KB)
+* v0.01 [Download](https://dl.dropboxusercontent.com/u/40069781/StealGaze/StealGaze0.01.zip) (zip/164KB)
 
 ## How to install
 1. Right-click on the zip file.
