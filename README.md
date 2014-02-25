@@ -15,7 +15,7 @@ This app is forked from [Chocorep](https://github.com/chocopon/FinalFantasyXIV_A
 * __[Advanced]__ To display target character's job icon.
 
 ## How to get
-* v0.01 [Download](https://dl.dropboxusercontent.com/u/40069781/StealGaze/StealGaze0.01.zip) (zip/164KB)
+v0.01 [Download](https://dl.dropboxusercontent.com/u/40069781/StealGaze/StealGaze0.01.zip) (zip/164KB)
 
 ## How to install
 1. Right-click on the zip file.
@@ -33,8 +33,7 @@ not to filter any logs at least one of chat-tabs.
 
 
 ## Advanced option
-* You can display the current target character's job-icon.
-
+You can display the current target character's job-icon.  
 Under construction
 
 
@@ -44,4 +43,4 @@ Released under the MIT license
 
 
 ## Feedback
-* e-mail: cignoir@gmail.com
+e-mail: cignoir@gmail.com
