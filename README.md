@@ -1,29 +1,24 @@
-FinalFantasyXIV_ARR_Tools
+StealGaze for FFXIV PvP
 =========================
-sorry. japanese only.
+## What's StealGaze
+StealGaze is the utility that helps you play FFXIV PvP.
 
-Final Fantasy XIV ARRのツールを開発しています。
+![ScreenShot](https://dl.dropboxusercontent.com/u/40069781/StealGaze/ss1.png)
 
-chocorep    
- repです。
- http://ff14.room301.net/a-reborn/4822
+This app is forked from [Chocorep](https://github.com/chocopon/FinalFantasyXIV_ARR_Tools) and now developing individually.
 
-takotaninfo
- 真タイタン戦専用のツール。タイタンの次の技がわります。
- http://ff14.room301.net/a-reborn/4983
+## Features
+* Supported FFXIV patch 2.16
+* Supported japanese client only now
 
-FFXIVLogAnalyze
- ログをパース、集計するライブラリ
- dot集計のために無理な作りになっている
- 設計から見直しが必要？
+## How to get
 
-FFXIVLibrary
- FFXIVのメモリ空間等のリソースにアクセスするためのライブラリ
- ログの位置の取得はサーチにて行っているが、
- サーチでなくてオフセットから決め打ちできるのが望ましい。
- 
- ■ 利用方法
-  VisualStudioのソリューションをまるまるアップしてあります。
- FinalFantasyXIV_ARR_Tools内のすべてのファイル、フォルダを取得して
- FFXIVARR_Tools.slnを開いてください。
- 
+## How to install
+
+## How to use
+
+## Licence
+
+## Feedback
+
+## Author
