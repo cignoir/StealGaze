@@ -1,4 +1,4 @@
-StealGaze for FFXIV PvP
+StealGaze v0.01 for FFXIV PvP
 =========================
 ## What's StealGaze
 StealGaze is the utility that helps you play FFXIV PvP.
@@ -12,13 +12,26 @@ This app is forked from [Chocorep](https://github.com/chocopon/FinalFantasyXIV_A
 * Supported japanese client only now
 
 ## How to get
+* [Download](https://dl.dropboxusercontent.com/u/40069781/StealGaze/StealGaze0.01.zip) (zip/164KB)
 
 ## How to install
+1. Right-click on the zip file.
+2. Click the "Extract All" option.
+3. Extract it in anywhere you like.
 
 ## How to use
+1. You need to log in ffxiv.
+2. Double click 'StealGaze.exe' and start.
+3. Then app will start to read and parse game-logs automatically.
+
+## Advanced option
+* You can display the current targeting character's job-icon.
+
+Coming soon.
 
 ## Licence
+* Copyright (c) 2014 Shulla Cignoir
+* Released under the MIT license
 
 ## Feedback
-
-## Author
+* e-mail cignoir@gmail.com
