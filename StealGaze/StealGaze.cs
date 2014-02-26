@@ -416,6 +416,7 @@ namespace StealGaze
 
         private void StealGaze_Load(object sender, EventArgs e)
         {
+            
             //バージョン情報
             //SetVersionInfo();
             dAndDSizeChanger = new DAndDSizeChanger(this, this, DAndDArea.All, 4);

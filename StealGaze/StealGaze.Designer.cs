@@ -178,9 +178,9 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabel,
             this.progressBar});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 228);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 227);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(393, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(393, 23);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -188,7 +188,7 @@
             // 
             this.statusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(19, 17);
+            this.statusLabel.Size = new System.Drawing.Size(20, 18);
             this.statusLabel.Text = "...";
             // 
             // progressBar
@@ -218,7 +218,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label1.Location = new System.Drawing.Point(21, 9);
+            this.label1.Location = new System.Drawing.Point(41, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 16);
             this.label1.TabIndex = 5;
