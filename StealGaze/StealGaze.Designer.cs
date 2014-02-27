@@ -36,11 +36,6 @@
             this.logReader = new System.Windows.Forms.Timer(this.components);
             this.logFinder = new System.ComponentModel.BackgroundWorker();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.marker = new System.Windows.Forms.DataGridViewImageColumn();
-            this.role = new System.Windows.Forms.DataGridViewImageColumn();
-            this.job = new System.Windows.Forms.DataGridViewImageColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.action = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
@@ -48,6 +43,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.targetImage = new System.Windows.Forms.PictureBox();
             this.resetButton = new System.Windows.Forms.Button();
+            this.marker = new System.Windows.Forms.DataGridViewImageColumn();
+            this.role = new System.Windows.Forms.DataGridViewImageColumn();
+            this.job = new System.Windows.Forms.DataGridViewImageColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.action = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.targetImage)).BeginInit();
@@ -95,7 +95,8 @@
             this.action});
             this.dataGridView.EnableHeadersVisualStyles = false;
             this.dataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(0)))), ((int)(((byte)(104)))));
-            this.dataGridView.Location = new System.Drawing.Point(176, 33);
+            this.dataGridView.Location = new System.Drawing.Point(15, 234);
+            this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -119,12 +120,95 @@
             this.dataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Black;
             this.dataGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Purple;
             this.dataGridView.RowTemplate.Height = 21;
-            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView.ShowCellErrors = false;
             this.dataGridView.ShowCellToolTips = false;
             this.dataGridView.ShowRowErrors = false;
-            this.dataGridView.Size = new System.Drawing.Size(210, 193);
+            this.dataGridView.Size = new System.Drawing.Size(153, 243);
             this.dataGridView.TabIndex = 2;
+            this.dataGridView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView_MouseDown);
+            this.dataGridView.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dataGridView_MouseMove);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.Color.Black;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusLabel,
+            this.progressBar});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 480);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(180, 23);
+            this.statusStrip1.SizingGrip = false;
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(20, 18);
+            this.statusLabel.Text = "...";
+            // 
+            // progressBar
+            // 
+            this.progressBar.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.progressBar.BackColor = System.Drawing.Color.Black;
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(100, 17);
+            this.progressBar.Visible = false;
+            // 
+            // closeButton
+            // 
+            this.closeButton.BackColor = System.Drawing.Color.Black;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeButton.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.closeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.closeButton.Location = new System.Drawing.Point(141, 9);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(27, 19);
+            this.closeButton.TabIndex = 4;
+            this.closeButton.Text = "×";
+            this.closeButton.UseVisualStyleBackColor = false;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 16);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "StealGaze";
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
+            this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label1_MouseMove);
+            // 
+            // targetImage
+            // 
+            this.targetImage.ErrorImage = global::StealGaze.Properties.Resources.blank;
+            this.targetImage.Image = global::StealGaze.Properties.Resources.eye;
+            this.targetImage.InitialImage = global::StealGaze.Properties.Resources.eye;
+            this.targetImage.Location = new System.Drawing.Point(15, 34);
+            this.targetImage.Name = "targetImage";
+            this.targetImage.Size = new System.Drawing.Size(153, 160);
+            this.targetImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.targetImage.TabIndex = 6;
+            this.targetImage.TabStop = false;
+            this.targetImage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.targetImage_MouseDown);
+            this.targetImage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.targetImage_MouseMove);
+            // 
+            // resetButton
+            // 
+            this.resetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.resetButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.resetButton.Location = new System.Drawing.Point(15, 200);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(153, 28);
+            this.resetButton.TabIndex = 7;
+            this.resetButton.Text = "Reset";
+            this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
             // marker
             // 
@@ -159,10 +243,10 @@
             // 
             // name
             // 
-            this.name.HeaderText = "Name";
+            this.name.HeaderText = "N";
             this.name.Name = "name";
             this.name.ReadOnly = true;
-            this.name.Width = 130;
+            this.name.Width = 73;
             // 
             // action
             // 
@@ -172,94 +256,18 @@
             this.action.Visible = false;
             this.action.Width = 265;
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.BackColor = System.Drawing.Color.Black;
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statusLabel,
-            this.progressBar});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 227);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(393, 23);
-            this.statusStrip1.TabIndex = 3;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // statusLabel
-            // 
-            this.statusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(20, 18);
-            this.statusLabel.Text = "...";
-            // 
-            // progressBar
-            // 
-            this.progressBar.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.progressBar.BackColor = System.Drawing.Color.Black;
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(100, 17);
-            this.progressBar.Visible = false;
-            // 
-            // closeButton
-            // 
-            this.closeButton.BackColor = System.Drawing.Color.Black;
-            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeButton.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.closeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.closeButton.Location = new System.Drawing.Point(344, 5);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(39, 23);
-            this.closeButton.TabIndex = 4;
-            this.closeButton.Text = "×";
-            this.closeButton.UseVisualStyleBackColor = false;
-            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label1.Location = new System.Drawing.Point(41, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 16);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Steal Gaze";
-            // 
-            // targetImage
-            // 
-            this.targetImage.ErrorImage = global::StealGaze.Properties.Resources.blank;
-            this.targetImage.Image = global::StealGaze.Properties.Resources.eye;
-            this.targetImage.InitialImage = global::StealGaze.Properties.Resources.eye;
-            this.targetImage.Location = new System.Drawing.Point(15, 33);
-            this.targetImage.Name = "targetImage";
-            this.targetImage.Size = new System.Drawing.Size(150, 150);
-            this.targetImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.targetImage.TabIndex = 6;
-            this.targetImage.TabStop = false;
-            // 
-            // resetButton
-            // 
-            this.resetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.resetButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.resetButton.Location = new System.Drawing.Point(15, 189);
-            this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(150, 36);
-            this.resetButton.TabIndex = 7;
-            this.resetButton.Text = "Reset";
-            this.resetButton.UseVisualStyleBackColor = true;
-            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
-            // 
             // StealGaze
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(393, 250);
+            this.ClientSize = new System.Drawing.Size(180, 503);
             this.ControlBox = false;
+            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.targetImage);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.dataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -292,13 +300,13 @@
         private System.Windows.Forms.ToolStripProgressBar progressBar;
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox targetImage;
+        private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.DataGridViewImageColumn marker;
         private System.Windows.Forms.DataGridViewImageColumn role;
         private System.Windows.Forms.DataGridViewImageColumn job;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn action;
-        private System.Windows.Forms.PictureBox targetImage;
-        private System.Windows.Forms.Button resetButton;
     }
 }
 

@@ -435,8 +435,8 @@ namespace StealGaze
 
             // TODO:
             this.TopMost = true;
-            this.Size = new Size(this.Size.Width, 250);
-            dataGridView.Size = new Size(210, 193);
+            //this.Size = new Size(this.Size.Width, 250);
+            //dataGridView.Size = new Size(210, 193);
 
             logFinder.RunWorkerAsync();
         }
@@ -495,6 +495,45 @@ namespace StealGaze
             targetImage.Image = Properties.Resources.eye;
 
             dataGridView.Rows.Clear();
+        }
+
+        private void label1_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastMousePoint = e.Location;
+        }
+
+        private void label1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if((e.Button & MouseButtons.Left) == System.Windows.Forms.MouseButtons.Left && dAndDSizeChanger.Status == DAndDArea.None)
+            {
+                this.Location += (Size)e.Location - (Size)lastMousePoint;
+            }
+        }
+
+        private void targetImage_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastMousePoint = e.Location;
+        }
+
+        private void targetImage_MouseMove(object sender, MouseEventArgs e)
+        {
+            if((e.Button & MouseButtons.Left) == System.Windows.Forms.MouseButtons.Left && dAndDSizeChanger.Status == DAndDArea.None)
+            {
+                this.Location += (Size)e.Location - (Size)lastMousePoint;
+            }
+        }
+
+        private void dataGridView_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastMousePoint = e.Location;
+        }
+
+        private void dataGridView_MouseMove(object sender, MouseEventArgs e)
+        {
+            if((e.Button & MouseButtons.Left) == System.Windows.Forms.MouseButtons.Left && dAndDSizeChanger.Status == DAndDArea.None)
+            {
+                this.Location += (Size)e.Location - (Size)lastMousePoint;
+            }
         }
     }
 }
