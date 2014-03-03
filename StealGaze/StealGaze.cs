@@ -19,7 +19,7 @@ namespace StealGaze
         Dictionary<string, PvPActor> actors = new Dictionary<string, PvPActor>();
         Dictionary<string, PvPActor> actorsLog = new Dictionary<string, PvPActor>();
 
-        DAndDSizeChanger dAndDSizeChanger;
+        DnDSizeChanger dAndDSizeChanger;
         Point lastMousePoint;
 
         bool OnMouse
@@ -151,7 +151,7 @@ namespace StealGaze
             
             //バージョン情報
             //SetVersionInfo();
-            dAndDSizeChanger = new DAndDSizeChanger(this, this, DAndDArea.All, 4);
+            dAndDSizeChanger = new DnDSizeChanger(this, this, DAndDArea.All, 4);
 
             // ログフォルダ
             //if(!System.IO.Directory.Exists(LogFolder))

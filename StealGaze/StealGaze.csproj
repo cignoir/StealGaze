@@ -77,7 +77,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAndDSizeChanger.cs" />
+    <Compile Include="DnDSizeChanger.cs" />
     <Compile Include="FFXIVLibrary\FFXIVLog.cs" />
     <Compile Include="FFXIVLibrary\FFXIVLogFileReader.cs" />
     <Compile Include="FFXIVLibrary\FFXIVLogMemoryInfo.cs" />

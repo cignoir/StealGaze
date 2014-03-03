@@ -4,7 +4,7 @@ using System.Windows.Forms;
 /// <summary>
 /// コントロールの端をD＆Dすることによってサイズを変更出来る機能を提供するクラス
 /// </summary>
-class DAndDSizeChanger
+class DnDSizeChanger
 {
     Control mouseListner;
     Control sizeChangeCtrl;
@@ -19,7 +19,7 @@ class DAndDSizeChanger
     /// <param name="sizeChangeCtrl">マウス入力によってサイズが変更されるコントロール</param>
     /// <param name="sizeChangeArea">上下左右のサイズ変更が有効になる範囲を指定</param>
     /// <param name="sizeChangeAreaWidth">サイズ変更が有効になる範囲の幅を指定</param>
-    public DAndDSizeChanger(Control mouseListner, Control sizeChangeCtrl, DAndDArea sizeChangeArea, int sizeChangeAreaWidth)
+    public DnDSizeChanger(Control mouseListner, Control sizeChangeCtrl, DAndDArea sizeChangeArea, int sizeChangeAreaWidth)
     {
         this.mouseListner = mouseListner;
         this.sizeChangeCtrl = sizeChangeCtrl;
